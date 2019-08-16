@@ -1,4 +1,4 @@
-on: package_registry
+on: [push, package_registry]
 
 jobs:
   example:
