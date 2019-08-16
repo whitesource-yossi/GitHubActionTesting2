@@ -10,4 +10,4 @@ jobs:
     - name: Scan
       uses: ./.github/actions/whitesource-unified-agent
       with:
-        args: --detect 
+        args: -detect 
