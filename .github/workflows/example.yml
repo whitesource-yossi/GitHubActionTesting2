@@ -9,3 +9,5 @@ jobs:
       uses: actions/checkout@v1.0.0
     - name: Scan
       uses: ./.github/actions/whitesource-unified-agent
+      with:
+        args: --detect 
