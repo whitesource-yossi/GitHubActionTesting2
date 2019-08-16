@@ -1,0 +1,8 @@
+name: 'WhiteSource Unified Agent'
+description: 'The Unified Agent is a Java command line tool that supports scanning of multiple package managers, build tools, source files, containerized environments and archives, and integrates with multiple CI/CD tools and repositories.'
+outputs:
+  results:
+    description: Security vulnerability results
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
