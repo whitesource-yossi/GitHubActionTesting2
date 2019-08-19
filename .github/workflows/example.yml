@@ -1,4 +1,4 @@
-on: [registry_package]
+on: [push, registry_package]
 
 jobs:
   example:
