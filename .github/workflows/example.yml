@@ -1,4 +1,4 @@
-on: [registry_package, push]
+on: [registry_package]
 
 jobs:
   example:
