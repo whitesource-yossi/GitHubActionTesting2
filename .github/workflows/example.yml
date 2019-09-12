@@ -8,6 +8,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1.0.0
     - name: Scan
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: ./.github/actions/whitesource-unified-agent
       with:
         args: -d . -detect 
