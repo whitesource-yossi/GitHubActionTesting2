@@ -3,7 +3,7 @@ FROM docker:stable
 RUN apk --update add bash && \
     apk add dos2unix
 
-RUN apk --update add openjdk7-jre
+RUN apk --update add openjdk8-jre
 
 WORKDIR /
 
