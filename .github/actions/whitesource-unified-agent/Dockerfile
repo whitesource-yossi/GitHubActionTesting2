@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM dind:19.03
 
 WORKDIR /
 
