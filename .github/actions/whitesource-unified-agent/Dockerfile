@@ -5,6 +5,9 @@ RUN apk --update add bash && \
     
 WORKDIR /
 
+COPY wss-unified-agent.jar /
+COPY wss-unified-agent.config /
+
 COPY entrypoint.sh /
 RUN dos2unix /entrypoint.sh
 RUN chmod +x entrypoint.sh
