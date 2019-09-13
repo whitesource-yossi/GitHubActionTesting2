@@ -6,4 +6,4 @@ echo $GITHUB_EVENT_NAME
 cat $GITHUB_EVENT_PATH
 echo yos end
 
-echo sh -c "/usr/bin/docker -v"
+sh -c "docker -v"
