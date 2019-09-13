@@ -1,4 +1,4 @@
-FROM docker:dind:19.03
+FROM docker:dind-stable
 
 WORKDIR /
 
