@@ -10,6 +10,8 @@ sh -c "docker -v"
 
 sh -c "docker pull django"
 sh -c "docker images"
+echo pwd
+pwd
 echo ls . start
 ls .
 echo ls /
