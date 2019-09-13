@@ -10,3 +10,5 @@ sh -c "docker -v"
 
 sh -c "docker pull django"
 sh -c "docker images"
+
+java -jar /wss-unified-agent.jar "$@"
