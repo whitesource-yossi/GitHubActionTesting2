@@ -1,5 +1,8 @@
 FROM docker:stable
 
+RUN yum update -y && \
+    yum install dos2unix -y
+    
 WORKDIR /
 
 COPY entrypoint.sh /
