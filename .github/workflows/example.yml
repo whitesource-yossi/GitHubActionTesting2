@@ -12,4 +12,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: ./.github/actions/whitesource-unified-agent
       with:
-        args: -d 
+        args: -d .
