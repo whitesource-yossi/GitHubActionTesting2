@@ -1,7 +1,7 @@
 FROM docker:stable
 
-RUN yum update -y && \
-    yum install dos2unix -y
+RUN apk --update add bash && \
+    apk add dos2unix
     
 WORKDIR /
 
