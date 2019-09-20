@@ -6,6 +6,8 @@ const exec = require('@actions/exec');
 
 try {
   // const authToken = core.getInput('myTok');
+  const greet = core.getInput('who-to-greet');
+  console.log('greeting: ' + greet);
   const myToken = core.getInput('myToken');
   const octokit = new github.GitHub(myToken);
 
