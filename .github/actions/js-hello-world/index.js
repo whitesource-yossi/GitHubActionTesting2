@@ -6,17 +6,16 @@ const exec = require('@actions/exec');
 
 
 try {
-  const greet = core.getInput('who-to-greet');
-  console.log(`greeting: ${greet}`);
+  // const greet = core.getInput('who-to-greet');
+  // console.log(`greeting: ${greet}`);
 
-  const firstName = core.getInput('FIRST_NAME');
-  console.log(`first name: ${firstName}`);
   console.log('env first name:' + process.env.FIRST_NAME);
+  console.log('env token:' + process.env.GITHUB_TOKEN);
 
   exec.exec('echo $FIRST_NAME');
 
   const myToken = core.getInput('myToken');
-  const octokit = new github.GitHub(myToken);
+  const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
 
 
   // const context = github.context;
