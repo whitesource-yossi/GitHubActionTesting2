@@ -13,11 +13,10 @@ try {
   const context = github.context;
   console.log('context' + JSON.stringify(context));
 
-  // const newIssue = octokit.issues.create({
-  //   context.repo,
-  //   title: 'New issue!',
-  //   body: 'Hello Universe!'
-  // });
+  const newIssue = octokit.issues.create({
+    title: 'New issue!',
+    body: 'Hello Universe!'
+  });
 
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
