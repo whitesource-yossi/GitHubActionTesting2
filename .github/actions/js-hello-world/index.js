@@ -10,6 +10,16 @@ try {
     const octokit = new github.GitHub(authToken);
     console.log('ocktokit: ' + JSON.stringify(octokit));
 
+    let authenticated = octokit.users.getAuthenticated();
+
+  console.log('users: ' + JSON.stringify(authenticated));
+
+  let activity = octokit.activity.listPublicEventsForRepoNetwork({
+    owner,
+    repo
+  });
+  console.log('activity: ' + JSON.stringify(activity));
+
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
     exec.exec('docker -v');
