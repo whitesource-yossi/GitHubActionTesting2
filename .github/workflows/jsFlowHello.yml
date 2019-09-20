@@ -18,6 +18,6 @@ jobs:
       with:
         who-to-greet: 'Yos'
     - name: Hello world
-       run: echo Hello world ${FIRST_NAME}
-       env:
-         FIRST_NAME: Mona Lisa
+      run: echo Hello world ${FIRST_NAME}
+      env:
+        FIRST_NAME: Mona Lisa
