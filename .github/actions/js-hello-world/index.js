@@ -16,14 +16,19 @@ try {
   // console.log('context' + JSON.stringify(context));
 
   async function f1() {
-    const newIssue = await octokit.issues.create({
-      owner: 'whitesource-yossi',
-      repo : 'GitHubActionTesting2',
-      title: 'New issue!',
-      body: 'Hello Universe!'
-    });
+    try {
+      const newIssue = await octokit.issues.create({
+        owner: 'whitesource-yossi',
+        repo : 'GitHubActionTesting2',
+        title: 'New issue!',
+        body: 'Hello Universe!'
+      });
 
-    console.log('issue : ' + JSON.stringify(newIssue));
+      console.log('issue : ' + JSON.stringify(newIssue));
+    } catch (e) {
+      console.error("error" + e);
+    }
+
   }
 
   let promise = f1();
