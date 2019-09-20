@@ -10,7 +10,7 @@ try {
   console.log('greeting: ' + greet);
 
   const firstName = core.getInput('FIRST_NAME');
-  console.log('first name: ' + firstName);
+  console.log(`first name: ${firstName}`);
 
 
   const myToken = core.getInput('myToken');
