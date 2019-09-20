@@ -15,12 +15,19 @@ try {
   // const context = github.context;
   // console.log('context' + JSON.stringify(context));
 
-  const newIssue = octokit.issues.create({
-    owner: 'whitesource-yossi',
-    repo : 'GitHubActionTesting2',
-    title: 'New issue!',
-    body: 'Hello Universe!'
-  });
+  async function f1() {
+    const newIssue = await octokit.issues.create({
+      owner: 'whitesource-yossi',
+      repo : 'GitHubActionTesting2',
+      title: 'New issue!',
+      body: 'Hello Universe!'
+    });
+
+    console.log('issue : ' + JSON.stringify(newIssue));
+  }
+
+  let promise = f1();
+  console.log('promise: ' + JSON.stringify(promise));
 
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
