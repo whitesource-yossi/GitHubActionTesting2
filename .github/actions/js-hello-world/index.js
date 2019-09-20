@@ -14,6 +14,7 @@ try {
   console.log('context' + JSON.stringify(context));
 
   const newIssue = octokit.issues.create({
+    owner: "whitesource-yossi",
     title: 'New issue!',
     body: 'Hello Universe!'
   });
@@ -21,6 +22,7 @@ try {
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
     exec.exec('docker -v');
+    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + myToken);
 
 
   // cmd.get(
