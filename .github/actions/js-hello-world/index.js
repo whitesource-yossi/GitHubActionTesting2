@@ -7,7 +7,7 @@ const core = require('@actions/core');
 
 try {
   const greet = core.getInput('who-to-greet');
-  console.log('greeting: ' + greet);
+  console.log(`greeting: ${greet}`);
 
   const firstName = core.getInput('FIRST_NAME');
   console.log(`first name: ${firstName}`);
