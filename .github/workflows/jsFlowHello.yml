@@ -12,6 +12,7 @@ jobs:
       uses: actions/checkout@v1.0.0
     - name: Hello world action step
       env:
+        FIRST_NAME: Mona Lisa
         myToken: ${{ secrets.GITHUB_TOKEN }}
       uses: ./.github/actions/js-hello-world
       with:
