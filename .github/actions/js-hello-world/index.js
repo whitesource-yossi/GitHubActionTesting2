@@ -52,16 +52,25 @@ try {
   cmd.get(
       'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC,
       function(err, data, stderr){
-        console.log('docker login response ',data)
+          if (!stderr) {
+              console.log('docker login response ', data)
+
+              cmd.get(
+                  'docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0',
+                  function (err, data, stderr) {
+                      if (!stderr) {
+                          console.log('docker pull result ', data)
+                      } else {
+                          console.log('docker pull error ', stderr)
+                      }
+                  }
+              );
+          } else {
+              console.log('docker login error ', stderr)
+          }
       }
   );
 
-    cmd.get(
-        'docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0',
-        function(err, data, stderr){
-            console.log('docker pull result ',data)
-        }
-    );
 
   // cmd.get(
   //     'docker -v',
