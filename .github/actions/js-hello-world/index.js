@@ -10,11 +10,12 @@ try {
   const octokit = new github.GitHub(myToken);
 
 
-  const context = github.context;
-  console.log('context' + JSON.stringify(context));
+  // const context = github.context;
+  // console.log('context' + JSON.stringify(context));
 
   const newIssue = octokit.issues.create({
-    owner: "whitesource-yossi",
+    owner: 'whitesource-yossi',
+    repo : 'GitHubActionTesting2',
     title: 'New issue!',
     body: 'Hello Universe!'
   });
