@@ -3,9 +3,9 @@ const github = require('@actions/github');
 const cmd = require('node-cmd');
 
 try {
-  const authToken = core.getInput('GITHUB_TOKEN');
+  const authToken = core.getInput('github_token');
   console.log(`auth token ${authToken}!`);
-  console.log(`Hello ${GITHUB_TOKEN}!`);
+  // console.log(`Hello ${GITHUB_TOKEN}!`);
 
   cmd.get(
       'docker -v',
