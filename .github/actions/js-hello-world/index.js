@@ -33,11 +33,13 @@ try {
 
     // exec.exec('docker -v');
     // exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
-    exec.exec('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
-    exec.exec('docker images');
+    // exec.exec('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
 
-    exec.exec('docker logout');
-    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN);
+
+    // exec.exec('docker images');
+    //
+    // exec.exec('docker logout');
+    // exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN);
 
 
   cmd.get(
@@ -53,6 +55,13 @@ try {
         console.log('docker login response ',data)
       }
   );
+
+    cmd.get(
+        'docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0',
+        function(err, data, stderr){
+            console.log('docker pull result ',data)
+        }
+    );
 
   // cmd.get(
   //     'docker -v',
