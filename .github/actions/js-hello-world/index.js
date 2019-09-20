@@ -7,7 +7,7 @@ const exec = require('@actions/exec');
 try {
   const authToken = core.getInput('myTok');
     console.log('auth token 1' + authToken + '!');
-    const octokit = new github.GitHub(myToken);
+    const octokit = new github.GitHub(authToken);
     console.log('ocktokit: ' + octokit);
 
     // console.log(`Hello ${GITHUB_TOKEN}!`);
