@@ -1,18 +1,28 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const cmd = require('node-cmd');
+// const cmd = require('node-cmd');
+const exec = require('@actions/exec');
+
 
 try {
-  const authToken = core.getInput('github_token');
-  console.log(`auth token ${authToken}!`);
-  // console.log(`Hello ${GITHUB_TOKEN}!`);
+  const authToken = core.getInput('myTok');
+    console.log('auth token 1' + authToken + '!');
+    const octokit = new github.GitHub(myToken);
+    console.log('ocktokit: ' + octokit);
 
-  cmd.get(
-      'docker -v',
-      function(err, data, stderr){
-        console.log('the current working dir is : ',data)
-      }
-  );
+    // console.log(`Hello ${GITHUB_TOKEN}!`);
+
+    exec.exec('docker -v');
+
+
+  // cmd.get(
+  //     'docker -v',
+  //     function(err, data, stderr){
+  //       console.log('the current working dir is : ',data)
+  //     }
+  // );
+
+
   // // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput('who-to-greet');
   // console.log(`Hello ${nameToGreet}!`);
