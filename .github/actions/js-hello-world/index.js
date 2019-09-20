@@ -11,6 +11,7 @@ try {
 
   const firstName = core.getInput('FIRST_NAME');
   console.log(`first name: ${firstName}`);
+  console.log('env first name:' + process.env.FIRST_NAME);
 
   exec.exec('echo $FIRST_NAME');
 
