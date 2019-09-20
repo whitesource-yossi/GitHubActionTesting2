@@ -1,8 +1,8 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
 
-const exec = require('@actions/exec');
-// const cmd = require('node-cmd');
+// const exec = require('@actions/exec');
+const cmd = require('node-cmd');
 
 
 try {
@@ -31,14 +31,28 @@ try {
   //
   // let promise = f1();
 
-    exec.exec('docker -v');
-    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
+    // exec.exec('docker -v');
+    // exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
     exec.exec('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
     exec.exec('docker images');
 
     exec.exec('docker logout');
     exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN);
 
+
+  cmd.get(
+      'docker -v',
+      function(err, data, stderr){
+        console.log('docker version is : ',data)
+      }
+  );
+
+  cmd.get(
+      'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC,
+      function(err, data, stderr){
+        console.log('docker login response ',data)
+      }
+  );
 
   // cmd.get(
   //     'docker -v',
