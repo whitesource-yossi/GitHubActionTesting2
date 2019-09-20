@@ -1,4 +1,4 @@
-on: [push,registry_package]
+on: [push, registry_package]
     branches:    
       - master 
 
