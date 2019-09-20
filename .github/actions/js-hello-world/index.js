@@ -10,6 +10,7 @@ try {
   // console.log(`greeting: ${greet}`);
 
   console.log('env token:' + process.env.GITHUB_TOKEN);
+  console.log('env secret:' + process.env.YOS_SEC);
 
   const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
 
@@ -31,7 +32,7 @@ try {
   // let promise = f1();
 
     exec.exec('docker -v');
-    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN);
+    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
 
 
   // cmd.get(
