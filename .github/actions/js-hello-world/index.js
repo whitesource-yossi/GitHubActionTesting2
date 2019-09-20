@@ -1,7 +1,7 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
 
-// const exec = require('@actions/exec');
+const exec = require('@actions/exec');
 // const cmd = require('node-cmd');
 
 
@@ -12,6 +12,7 @@ try {
   const firstName = core.getInput('FIRST_NAME');
   console.log(`first name: ${firstName}`);
 
+  exec.exec('echo $FIRST_NAME');
 
   const myToken = core.getInput('myToken');
   const octokit = new github.GitHub(myToken);
