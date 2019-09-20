@@ -5,15 +5,16 @@ const exec = require('@actions/exec');
 
 
 try {
-  const authToken = core.getInput('myTok');
-    const octokit = new github.GitHub(authToken);
-    // console.log('ocktokit: ' + JSON.stringify(octokit));
+  // const authToken = core.getInput('myTok');
+  const myToken = core.getInput('myToken');
+  const octokit = new github.GitHub(myToken);
 
-    let authenticated = octokit.users.getAuthenticated();
 
   const context = github.context;
+  console.log('context' + JSON.stringify(context));
+
   const newIssue = octokit.issues.create({
-    ...context.repo,
+    context.repo,
     title: 'New issue!',
     body: 'Hello Universe!'
   });
