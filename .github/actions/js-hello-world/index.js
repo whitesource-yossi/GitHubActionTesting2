@@ -6,19 +6,18 @@ const exec = require('@actions/exec');
 
 try {
   const authToken = core.getInput('myTok');
-    console.log('auth token 1' + authToken + '!');
     const octokit = new github.GitHub(authToken);
-    console.log('ocktokit: ' + JSON.stringify(octokit));
+    // console.log('ocktokit: ' + JSON.stringify(octokit));
 
     let authenticated = octokit.users.getAuthenticated();
 
-  console.log('users: ' + JSON.stringify(authenticated));
+  console.log('users: ' + authenticated);
 
   let activity = octokit.activity.listPublicEventsForRepoNetwork({
     owner,
     repo
   });
-  console.log('activity: ' + JSON.stringify(activity));
+  console.log('activity: '  + activity);
 
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
