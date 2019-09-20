@@ -58,8 +58,30 @@ try {
               cmd.get(
                   'docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0',
                   function (err, data, stderr) {
-                      if (!stderr) {
-                          console.log('docker pull result ', data)
+                      if (data) {
+                          console.log('docker pull result ', data);
+
+                          cmd.get(
+                              'docker images',
+                              function(err, data, stderr){
+                                  if (data) {
+                                      console.log('docker images: ',data);
+
+                                      cmd.get(
+                                          'docker logout',
+                                          function(err, data, stderr){
+                                              if (data) {
+                                                  console.log('docker logout : ', data);
+                                              } else {
+                                                  console.log('docker logout error: ', stderr);
+                                              }
+                                          }
+                                      );
+                                  }  else {
+                                      console.log('docker images error: ', stderr);
+                                  }
+                              }
+                          );
                       } else {
                           console.log('docker pull error ', stderr)
                       }
