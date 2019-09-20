@@ -52,7 +52,7 @@ try {
   cmd.get(
       'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC,
       function(err, data, stderr){
-          if (!stderr) {
+          if (data) {
               console.log('docker login response ', data)
 
               cmd.get(
