@@ -1,4 +1,7 @@
-on: [push,registry_package]
+on: 
+  push:
+    branches:    
+      - master 
 
 jobs:
   example:
