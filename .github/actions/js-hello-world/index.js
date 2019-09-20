@@ -9,41 +9,29 @@ try {
   // const greet = core.getInput('who-to-greet');
   // console.log(`greeting: ${greet}`);
 
-  console.log('env first name:' + process.env.FIRST_NAME);
   console.log('env token:' + process.env.GITHUB_TOKEN);
 
-  exec.exec('echo $FIRST_NAME');
-
-  const myToken = core.getInput('myToken');
   const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
 
+  // async function f1() {
+  //   try {
+  //     const newIssue = await octokit.issues.create({
+  //       owner: 'whitesource-yossi',
+  //       repo : 'GitHubActionTesting2',
+  //       title: 'New issue!',
+  //       body: 'Hello Universe!'
+  //     });
+  //
+  //     console.log('issue : ' + JSON.stringify(newIssue));
+  //   } catch (e) {
+  //     console.error("error" + e);
+  //   }
+  // }
+  //
+  // let promise = f1();
 
-  // const context = github.context;
-  // console.log('context' + JSON.stringify(context));
-
-  async function f1() {
-    try {
-      const newIssue = await octokit.issues.create({
-        owner: 'whitesource-yossi',
-        repo : 'GitHubActionTesting2',
-        title: 'New issue!',
-        body: 'Hello Universe!'
-      });
-
-      console.log('issue : ' + JSON.stringify(newIssue));
-    } catch (e) {
-      console.error("error" + e);
-    }
-
-  }
-
-  let promise = f1();
-  console.log('promise: ' + JSON.stringify(promise));
-
-    // console.log(`Hello ${GITHUB_TOKEN}!`);
-
-    // exec.exec('docker -v');
-    // exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + myToken);
+    exec.exec('docker -v');
+    exec.exec('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN);
 
 
   // cmd.get(
