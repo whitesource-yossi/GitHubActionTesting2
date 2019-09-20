@@ -1,0 +1,20 @@
+on: 
+  push:
+    branches:    
+      - jsHello 
+
+jobs:
+  example:
+    name: JS hello world
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1.0.0
+    - name: Hello world action step
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ./.github/actions/js-hello-world
+      with:
+        who-to-greet: 'Yos'
+    - name: Get the output time
+       run: echo "The time was ${{ steps.hello.outputs.time }}"
