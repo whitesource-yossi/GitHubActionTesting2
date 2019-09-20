@@ -11,13 +11,12 @@ try {
 
     let authenticated = octokit.users.getAuthenticated();
 
-  console.log('users: ' + authenticated);
-
-  let activity = octokit.activity.listPublicEventsForRepoNetwork({
-    owner,
-    repo
+  const context = github.context;
+  const newIssue = await octokit.issues.create({
+    ...context.repo,
+    title: 'New issue!',
+    body: 'Hello Universe!'
   });
-  console.log('activity: '  + activity);
 
     // console.log(`Hello ${GITHUB_TOKEN}!`);
 
