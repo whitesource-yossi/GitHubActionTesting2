@@ -12,7 +12,7 @@ try {
     let authenticated = octokit.users.getAuthenticated();
 
   const context = github.context;
-  const newIssue = await octokit.issues.create({
+  const newIssue = octokit.issues.create({
     ...context.repo,
     title: 'New issue!',
     body: 'Hello Universe!'
