@@ -72,6 +72,19 @@ try {
                                           function(err, data, stderr){
                                               if (data) {
                                                   console.log('docker logout : ', data);
+
+                                                  cmd.get(
+                                                      'docker login docker.pkg.github.com -u whitesource-yossi -p \' + process.env.GITHUB_TOKEN',
+                                                      function(err, data, stderr){
+                                                          if (data) {
+                                                              console.log('docker login with GitHub token is : ',data);
+                                                          }
+
+                                                          if (stderr){
+                                                              console.log('docker login with GitHub token error is : ',stderr);
+                                                          }
+                                                      }
+                                                  );
                                               } else {
                                                   console.log('docker logout error: ', stderr);
                                               }
