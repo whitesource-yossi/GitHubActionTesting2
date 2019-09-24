@@ -69,7 +69,8 @@ try {
                                     if (data) {
                                         console.log('docker images: ', data);
 
-                                        cmd.get(uaCommand,
+                                        // cmd.get(uaCommand,
+                                        cmd.get("ls ",
                                             function (err, data, stderr) {
                                                 if (data) {
                                                     console.log('ua run result: ', data);
