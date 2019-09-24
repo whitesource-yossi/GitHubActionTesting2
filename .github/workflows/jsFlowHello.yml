@@ -15,6 +15,9 @@ jobs:
         FIRST_NAME: Mona Lisa
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YOS_SEC: ${{ secrets.YOS_SEC }}
+        YOS_USER_KEY: ${{ secrets.YOS_USER_KEY }}
+        YOS_API_KEY: ${{ secrets.Yos_API_KEY }}
+        YOS_PROJ: ${{ secrets.YOS_PROJ }}
       uses: ./.github/actions/js-hello-world
       with:
         who-to-greet: 'Yos'

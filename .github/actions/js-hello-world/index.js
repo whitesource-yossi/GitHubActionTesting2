@@ -53,13 +53,15 @@ try {
       'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC,
       function(err, data, stderr){
           if (data) {
-              console.log('docker login response ', data)
+              console.log('docker login response ', data);
 
               cmd.get(
                   'docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0',
                   function (err, data, stderr) {
                       if (data) {
                           console.log('docker pull result ', data);
+                          let uaCommand = 'java -jar .\\wss-unified-agent-19.9.1.jar -d . -apiKey ' + process.env.YOS_API_KEY +' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY;
+                          console.log('ua run command is: ', uaCommand);
 
                           cmd.get(
                               'docker images',
@@ -67,29 +69,35 @@ try {
                                   if (data) {
                                       console.log('docker images: ',data);
 
-                                      cmd.get(
-                                          'docker logout',
+                                      cmd.get(uaCommand,
                                           function(err, data, stderr){
-                                              if (data) {
-                                                  console.log('docker logout : ', data);
-
-                                                  cmd.get(
-                                                      'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN,
-                                                      function(err, data, stderr){
-                                                          if (data) {
-                                                              console.log('docker login with GitHub token is : ',data);
-                                                          }
-
-                                                          if (stderr){
-                                                              console.log('docker login with GitHub token error is : ',stderr);
-                                                          }
-                                                      }
-                                                  );
-                                              } else {
-                                                  console.log('docker logout error: ', stderr);
-                                              }
-                                          }
-                                      );
+                                          if (data) {
+                                              console.log('ua run result: ', data);
+                                            }
+                                          });
+                                      // cmd.get(
+                                      //     'docker logout',
+                                      //     function(err, data, stderr){
+                                      //         if (data) {
+                                      //             console.log('docker logout : ', data);
+                                      //
+                                      //             cmd.get(
+                                      //                 'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.GITHUB_TOKEN,
+                                      //                 function(err, data, stderr){
+                                      //                     if (data) {
+                                      //                         console.log('docker login with GitHub token is : ',data);
+                                      //                     }
+                                      //
+                                      //                     if (stderr){
+                                      //                         console.log('docker login with GitHub token error is : ',stderr);
+                                      //                     }
+                                      //                 }
+                                      //             );
+                                      //         } else {
+                                      //             console.log('docker logout error: ', stderr);
+                                      //         }
+                                      //     }
+                                      // );
                                   }  else {
                                       console.log('docker images error: ', stderr);
                                   }
