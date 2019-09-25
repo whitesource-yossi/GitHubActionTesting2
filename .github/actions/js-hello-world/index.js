@@ -43,7 +43,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                         function (err, data, stderr) {
                             if (data) {
                                 console.log('docker pull result ', data);
-                                let uaCommand = 'java -jar .\\wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY;
+                                let uaCommand = 'java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY;
                                 console.log('ua run command is: ', uaCommand);
 
                                 cmd.get(
