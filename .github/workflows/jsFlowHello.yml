@@ -1,7 +1,4 @@
-on: 
-  push:
-    branches:    
-      - jsHello
+on:
   registry_package:
     branches:
       - jsHello
