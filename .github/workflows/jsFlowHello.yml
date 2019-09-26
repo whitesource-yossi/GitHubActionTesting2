@@ -2,7 +2,7 @@ on:
   push:
     branches:    
       - jsHello
-  package_registry:
+  registry_package:
     branches:
       - jsHello
 
