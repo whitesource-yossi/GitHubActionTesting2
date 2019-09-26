@@ -1,7 +1,10 @@
 on: 
   push:
     branches:    
-      - jsHello 
+      - jsHello
+  package_registry:
+    branches:
+      - jsHello
 
 jobs:
   example:
