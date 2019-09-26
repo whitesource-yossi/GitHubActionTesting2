@@ -1,7 +1,4 @@
-on:
-  registry_package:
-    branches:
-      - jsHello
+on: [push, package_registry]
 
 jobs:
   example:
