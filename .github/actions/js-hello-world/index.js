@@ -5,27 +5,19 @@ const core = require('@actions/core');
 const cmd = require('node-cmd');
 
 var download = function (url, dest, cb) {
-    try {
-        var file = fs.createWriteStream(dest);
-        var request = https.get(url, function (response) {
-            response.pipe(file);
-            file.on('finish', function () {
-                file.close(cb);  // close() is async, call cb after close completes.
-                console.log('Finished downloading file');
-            });
+    var file = fs.createWriteStream(dest);
+    var request = https.get(url, function (response) {
+        response.pipe(file);
+        file.on('finish', function () {
+            file.close(cb);  // close() is async, call cb after close completes.
+            console.log('Finished downloading file');
         });
-        //     .on('error', function (err) { // Handle errors
-        //     fs.unlink(dest); // Delete the file async. (But we don't check the result)
-        //     if (cb) {
-        //         cb(err.message);
-        //     }
-        // });
-    } catch (e) {
-        // fs.unlink(dest); // Delete the file async. (But we don't check the result)
+    }).on('error', function (err) { // Handle errors
+        fs.unlink(dest); // Delete the file async. (But we don't check the result)
         if (cb) {
-            cb(e.message);
+            cb(err.message);
         }
-    }
+    });
 };
 
 var execShellCommand = function (command) {
@@ -61,22 +53,31 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
             console.log("Error downloading file " + err)
         } else {
             try {
-                console.log('success');
-
                 var dockerVersion = execShellCommand('docker -v');
                 dockerVersion.then(
                     result => {
                         logCmdData(result);
+                        execShellCommand('ll');
                     }
-                ).catch(err => logCmdError('Exception docker version is : ', err));
-
-                var ls = execShellCommand('ls');
-                ls.then(
+                ).catch(err => logCmdError('Exception docker version is : ', err)
+                ).then(
                     result => {
                         logCmdData(result);
                         // return dockerLogin;
                     }
-                ).catch(err => {logCmdError("Exception ", err)});
+                ).catch(err => {
+                    logCmdError("Exception ", err)
+                });
+
+                // var ls = execShellCommand('ls');
+                // ls.then(
+                //     result => {
+                //         logCmdData(result);
+                //         // return dockerLogin;
+                //     }
+                // ).catch(err => {
+                //     logCmdError("Exception ", err)
+                // });
 
                 // ls.then(
                 //     result => {
@@ -112,7 +113,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
 
 
             } catch (error) {
-                core.setFailed('Yos ' + error.message);
+                core.setFailed(error.message);
             }
         }
     });
