@@ -13,16 +13,17 @@ var download = function (url, dest, cb) {
                 file.close(cb);  // close() is async, call cb after close completes.
                 console.log('Finished downloading file');
             });
-        }).on('error', function (err) { // Handle errors
-            fs.unlink(dest); // Delete the file async. (But we don't check the result)
-            if (cb) {
-                cb(err.message);
-            }
         });
+        //     .on('error', function (err) { // Handle errors
+        //     fs.unlink(dest); // Delete the file async. (But we don't check the result)
+        //     if (cb) {
+        //         cb(err.message);
+        //     }
+        // });
     } catch (e) {
         // fs.unlink(dest); // Delete the file async. (But we don't check the result)
         if (cb) {
-            cb(err.message);
+            cb(e.message);
         }
     }
 };
@@ -58,18 +59,19 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
     if (err) { console.log("Error downloading file " + err) }
     else {
         try {
-            dockerVersion.then(
-                result => {
-                    logCmdData(result);
-                }
-            ).catch(err => logCmdError('Exception docker version is : ', err));
-
-            ls.then(
-                result => {
-                    logCmdData(result);
-                    // return dockerLogin;
-                }
-            ).catch(err => {logCmdError("Exception ", err)});
+            console.log('success');
+            // dockerVersion.then(
+            //     result => {
+            //         logCmdData(result);
+            //     }
+            // ).catch(err => logCmdError('Exception docker version is : ', err));
+            //
+            // ls.then(
+            //     result => {
+            //         logCmdData(result);
+            //         // return dockerLogin;
+            //     }
+            // ).catch(err => {logCmdError("Exception ", err)});
 
             // ).then(
             //     result => {
