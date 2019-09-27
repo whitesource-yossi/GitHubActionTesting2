@@ -40,8 +40,7 @@ var logCmdError = function (message, error) {
     console.log(message + error)
 };
 
-// download('https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar', "wss-unified-agent.jar", function (err) {
-download('https://drive.google.com/file/d/1fp65KR81PQlwpOt_BxexWiEXxZiR2UbG/view?usp=sharing', "wss-unified-agent.jar", function (err) {
+download('https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar', "wss-unified-agent.jar", function (err) {
     try {
         var dockerVersion = execShellCommand('docker -v');
         dockerVersion.then(
