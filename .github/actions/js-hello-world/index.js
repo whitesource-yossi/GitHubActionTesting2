@@ -55,38 +55,34 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
             dockerVersion.then(
                 result => {
                     logCmdData(result);
-                },
-                err => {
-                    logCmdError('docker version is : ', err)
                 }
-            );
+            ).catch(err => logCmdError('Exception docker version is : ', err));
 
             ls.then(
                 result => {
                     logCmdData(result);
                     return dockerLogin;
                 }
-            ).catch(err => {
-                    logCmdError("Exception ", err)
-                }
-            ).then(
-                result => {
-                    logCmdData(result);
-                    return dockerPull;
-                }
-            ).catch(err => logCmdError('Exception docker login response ', err)
-            ).then(
-                result => {
-                    logCmdData(result);
-                    return dockerImages;
-                }
-            ).catch(err => logCmdError('Exception docker pull response ', err)
-            ).then(
-                result => {
-                    logCmdData(result);
-                    // return uaDockerScan;
-                }
-            ).catch(err => logCmdError('Exception docker images result ', err));
+            ).catch(err => {logCmdError("Exception ", err)});
+
+            // ).then(
+            //     result => {
+            //         logCmdData(result);
+            //         return dockerPull;
+            //     }
+            // ).catch(err => logCmdError('Exception docker login response ', err)
+            // ).then(
+            //     result => {
+            //         logCmdData(result);
+            //         return dockerImages;
+            //     }
+            // ).catch(err => logCmdError('Exception docker pull response ', err)
+            // ).then(
+            //     result => {
+            //         logCmdData(result);
+            //         // return uaDockerScan;
+            //     }
+            // ).catch(err => logCmdError('Exception docker images result ', err));
             // ).then(
             //     result => {
             //         logCmdData(result);
