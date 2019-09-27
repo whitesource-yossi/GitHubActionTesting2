@@ -2,7 +2,6 @@ const fs = require('fs');
 const https = require('follow-redirects').https;
 // const github = require('@actions/github');
 const core = require('@actions/core');
-
 const cmd = require('node-cmd');
 
 var download = function (url, dest, cb) {
@@ -28,7 +27,7 @@ var download = function (url, dest, cb) {
     }
 };
 
-function execShellCommand(command) {
+var execShellCommand = function(command) {
     return new Promise((resolve, reject) => {
         cmd.get(command, (err, data, stderr) => {
             if (err) {
@@ -38,15 +37,15 @@ function execShellCommand(command) {
             }
         });
     });
-}
+};
 
-function logCmdData(data) {
+var logCmdData = function(data) {
     console.log('Cmd data', data)
-}
+};
 
-function logCmdError(message, error) {
+var logCmdError = function(message, error) {
     console.log(message + error)
-}
+};
 
 var ls = execShellCommand('ls');
 var dockerVersion = execShellCommand('docker -v');
@@ -68,7 +67,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
             ls.then(
                 result => {
                     logCmdData(result);
-                    return dockerLogin;
+                    // return dockerLogin;
                 }
             ).catch(err => {logCmdError("Exception ", err)});
 
