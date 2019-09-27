@@ -68,10 +68,14 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                 logCmdData(result);
                 return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY);
             }
+        ).then(
+            result => {
+                return logCmdData(result);
+            }
         )
-            .catch(err => {
+        .catch(err => {
                 logCmdError("Exception ", err)
-            });
+        });
     } catch (error) {
         core.setFailed(error.message);
     }
