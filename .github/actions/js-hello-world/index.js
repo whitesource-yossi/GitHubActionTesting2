@@ -64,7 +64,8 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                     result => {
                         logCmdData(result);
                         // return dockerLogin;
-                    }
+                    },
+                    err => logCmdError("rejected error", err)
                 ).catch(err => {
                     logCmdError("Exception ", err)
                 });
