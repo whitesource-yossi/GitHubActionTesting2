@@ -59,13 +59,28 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                         logCmdData(result);
                         return execShellCommand('ls -alF');
                     }
-                // ).catch(err => logCmdError('Exception docker version is : ', err)
                 ).then(
                     result => {
-                        return logCmdData(result);
-                        // return dockerLogin;
+                        logCmdData(result);
+                        return execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
                     }
-                ).catch(err => {
+                ).then(
+                    result => {
+                        logCmdData(result);
+                        return execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
+                    }
+                ).then(
+                    result => {
+                        logCmdData(result);
+                        return execShellCommand('docker images');
+                    }
+                ).then(
+                    result => {
+                        logCmdData(result);
+                        return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY);
+                    }
+                )
+                .catch(err => {
                     logCmdError("Exception ", err)
                 });
 
