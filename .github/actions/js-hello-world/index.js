@@ -55,52 +55,53 @@ var dockerPull = execShellCommand('docker pull docker.pkg.github.com/whitesource
 var dockerImages = execShellCommand('docker images');
 var uaDockerScan = execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY, 'docker images result ');
 
-download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar", function (err) {
-    if (err) { console.log("Error downloading file " + err) }
-    else {
-        try {
-            console.log('success');
-            // dockerVersion.then(
-            //     result => {
-            //         logCmdData(result);
-            //     }
-            // ).catch(err => logCmdError('Exception docker version is : ', err));
-            //
-            // ls.then(
-            //     result => {
-            //         logCmdData(result);
-            //         // return dockerLogin;
-            //     }
-            // ).catch(err => {logCmdError("Exception ", err)});
-
-            // ).then(
-            //     result => {
-            //         logCmdData(result);
-            //         return dockerPull;
-            //     }
-            // ).catch(err => logCmdError('Exception docker login response ', err)
-            // ).then(
-            //     result => {
-            //         logCmdData(result);
-            //         return dockerImages;
-            //     }
-            // ).catch(err => logCmdError('Exception docker pull response ', err)
-            // ).then(
-            //     result => {
-            //         logCmdData(result);
-            //         // return uaDockerScan;
-            //     }
-            // ).catch(err => logCmdError('Exception docker images result ', err));
-            // ).then(
-            //     result => {
-            //         logCmdData(result);
-            //         console.log("Yos finish all");
-            //     }
-            // ).catch(err => logCmdError("Exception ua run results ", err));
-
-
-        } catch (error) {
-            core.setFailed('Yos ' + error.message);
-        }
-    }
-});
+download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar");
+// , function (err) {
+//     if (err) { console.log("Error downloading file " + err) }
+//     else {
+//         try {
+//             console.log('success');
+//             // dockerVersion.then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //     }
+//             // ).catch(err => logCmdError('Exception docker version is : ', err));
+//             //
+//             // ls.then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //         // return dockerLogin;
+//             //     }
+//             // ).catch(err => {logCmdError("Exception ", err)});
+//
+//             // ).then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //         return dockerPull;
+//             //     }
+//             // ).catch(err => logCmdError('Exception docker login response ', err)
+//             // ).then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //         return dockerImages;
+//             //     }
+//             // ).catch(err => logCmdError('Exception docker pull response ', err)
+//             // ).then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //         // return uaDockerScan;
+//             //     }
+//             // ).catch(err => logCmdError('Exception docker images result ', err));
+//             // ).then(
+//             //     result => {
+//             //         logCmdData(result);
+//             //         console.log("Yos finish all");
+//             //     }
+//             // ).catch(err => logCmdError("Exception ua run results ", err));
+//
+//
+//         } catch (error) {
+//             core.setFailed('Yos ' + error.message);
+//         }
+//     }
+// });
