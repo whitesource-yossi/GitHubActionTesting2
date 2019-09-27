@@ -6,19 +6,26 @@ const core = require('@actions/core');
 const cmd = require('node-cmd');
 
 var download = function (url, dest, cb) {
-    var file = fs.createWriteStream(dest);
-    var request = https.get(url, function (response) {
-        response.pipe(file);
-        file.on('finish', function () {
-            file.close(cb);  // close() is async, call cb after close completes.
-            console.log('Finished downloading file');
+    try {
+        var file = fs.createWriteStream(dest);
+        var request = https.get(url, function (response) {
+            response.pipe(file);
+            file.on('finish', function () {
+                file.close(cb);  // close() is async, call cb after close completes.
+                console.log('Finished downloading file');
+            });
+        }).on('error', function (err) { // Handle errors
+            fs.unlink(dest); // Delete the file async. (But we don't check the result)
+            if (cb) {
+                cb(err.message);
+            }
         });
-    }).on('error', function (err) { // Handle errors
-        fs.unlink(dest); // Delete the file async. (But we don't check the result)
+    } catch (e) {
+        // fs.unlink(dest); // Delete the file async. (But we don't check the result)
         if (cb) {
             cb(err.message);
         }
-    });
+    }
 };
 
 function execShellCommand(command) {
