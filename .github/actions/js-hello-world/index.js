@@ -69,37 +69,28 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
 
         dockerLogin.then(
             result => {
-               logCmdData(result);
-               return dockerPull;
-            },
-            err => {
-                logCmdError('docker login response ', err);
+                logCmdData(result);
+                return dockerPull;
             }
+        ).catch(err => logCmdError('Exception docker login response ', err)
         ).then(
             result => {
                 logCmdData(result);
                 return dockerImages;
-            },
-            err => {
-                logCmdError('docker pull result ', err);
             }
+        ).catch(err => logCmdError('Exception docker pull response ', err)
         ).then(
             result => {
                 logCmdData(result);
                 return uaDockerScan;
-            },
-            err => {
-                logCmdError('docker images result ', err);
             }
+        ).catch(err => logCmdError('Exception docker images result ', err)
         ).then(
             result => {
                 logCmdData(result);
                 console.log("Yos finish all");
-            },
-            err => {
-                logCmdError('ua run result: ', err);
             }
-        );
+        ).catch(err => logCmdError("Exception ua run results ", err));
 
         // cmd.get(
         //     'docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC,
