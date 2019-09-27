@@ -100,7 +100,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
 
 
         } catch (error) {
-            core.setFailed(error.message);
+            core.setFailed('Yos ' + error.message);
         }
     }
 });
