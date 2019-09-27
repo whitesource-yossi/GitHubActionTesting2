@@ -59,7 +59,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                         logCmdData(result);
                         execShellCommand('ll');
                     }
-                ).catch(err => logCmdError('Exception docker version is : ', err)
+                // ).catch(err => logCmdError('Exception docker version is : ', err)
                 ).then(
                     result => {
                         logCmdData(result);
