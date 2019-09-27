@@ -19,7 +19,7 @@ var download = function (url, dest, cb) {
     });
 };
 
-function execShellCommand(command, message) {
+function execShellCommand(command) {
     return new Promise((resolve, reject) => {
         cmd.get(command, (err, data, stderr) => {
             if (err) {
@@ -35,13 +35,15 @@ function logCmdData(data) {
     console.log('Cmd data', data)
 }
 
-function logCmdError(error) {
-    console.log('Cmd error', error)
+function logCmdError(message, error) {
+    console.log(message + error)
 }
 
-var dockerVersion = execShellCommand('docker -v', 'docker version is : ');
-var dockerLogin = execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC, 'docker login response ');
-var dockerPull = execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0', 'docker pull result ');
+var dockerVersion = execShellCommand('docker -v');
+var dockerLogin = execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
+var dockerPull = execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
+var dockerImages = execShellCommand('docker images');
+var uaDockerScan = execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY, 'docker images result ');
 
 download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar", function () {
     try {
@@ -61,7 +63,7 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                 logCmdData(result);
             },
             err => {
-                logCmdError(err)
+                logCmdError('docker version is : ', err)
             }
         );
 
@@ -71,15 +73,31 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
                return dockerPull;
             },
             err => {
-                logCmdError(err);
+                logCmdError('docker login response ', err);
             }
         ).then(
             result => {
                 logCmdData(result);
-                return dockerPull;
+                return dockerImages;
             },
             err => {
-                logCmdError(err);
+                logCmdError('docker pull result ', err);
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                return uaDockerScan;
+            },
+            err => {
+                logCmdError('docker images result ', err);
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                console.log("Yos finish all");
+            },
+            err => {
+                logCmdError('ua run result: ', err);
             }
         );
 
