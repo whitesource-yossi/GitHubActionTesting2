@@ -15,7 +15,9 @@ var download = function (url, dest, cb) {
         });
     }).on('error', function (err) { // Handle errors
         fs.unlink(dest); // Delete the file async. (But we don't check the result)
-        if (cb) cb(err.message);
+        if (cb) {
+            cb(err.message);
+        }
     });
 };
 
@@ -46,51 +48,55 @@ var dockerPull = execShellCommand('docker pull docker.pkg.github.com/whitesource
 var dockerImages = execShellCommand('docker images');
 var uaDockerScan = execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY, 'docker images result ');
 
-download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar", function () {
-    try {
-        dockerVersion.then(
-            result => {
-                logCmdData(result);
-            },
-            err => {
-                logCmdError('docker version is : ', err)
-            }
-        );
+download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar", function (err) {
+    if (err) { console.log("Error downloading file " + err) }
+    else {
+        try {
+            dockerVersion.then(
+                result => {
+                    logCmdData(result);
+                },
+                err => {
+                    logCmdError('docker version is : ', err)
+                }
+            );
 
-        ls.then(
-            result => {
-                logCmdData(result);
-                return dockerLogin;
-            }
-        ).catch(err => {logCmdError("Exception ", err)}
-        ).then(
-            result => {
-                logCmdData(result);
-                return dockerPull;
-            }
-        ).catch(err => logCmdError('Exception docker login response ', err)
-        ).then(
-            result => {
-                logCmdData(result);
-                return dockerImages;
-            }
-        ).catch(err => logCmdError('Exception docker pull response ', err)
-        ).then(
-            result => {
-                logCmdData(result);
-                return uaDockerScan;
-            }
-        ).catch(err => logCmdError('Exception docker images result ', err)
-        ).then(
-            result => {
-                logCmdData(result);
-                console.log("Yos finish all");
-            }
-        ).catch(err => logCmdError("Exception ua run results ", err));
+            ls.then(
+                result => {
+                    logCmdData(result);
+                    return dockerLogin;
+                }
+            ).catch(err => {
+                    logCmdError("Exception ", err)
+                }
+            ).then(
+                result => {
+                    logCmdData(result);
+                    return dockerPull;
+                }
+            ).catch(err => logCmdError('Exception docker login response ', err)
+            ).then(
+                result => {
+                    logCmdData(result);
+                    return dockerImages;
+                }
+            ).catch(err => logCmdError('Exception docker pull response ', err)
+            ).then(
+                result => {
+                    logCmdData(result);
+                    return uaDockerScan;
+                }
+            ).catch(err => logCmdError('Exception docker images result ', err)
+            ).then(
+                result => {
+                    logCmdData(result);
+                    console.log("Yos finish all");
+                }
+            ).catch(err => logCmdError("Exception ua run results ", err));
 
 
-
-    } catch (error) {
-        core.setFailed(error.message);
+        } catch (error) {
+            core.setFailed(error.message);
+        }
     }
 });
