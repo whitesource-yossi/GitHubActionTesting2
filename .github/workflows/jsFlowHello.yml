@@ -1,4 +1,10 @@
-on: registry_package
+on:
+  push:
+    branches:
+      - jsHello
+  registry_package:
+    branches:
+      - jsHello
 
 jobs:
   example:
