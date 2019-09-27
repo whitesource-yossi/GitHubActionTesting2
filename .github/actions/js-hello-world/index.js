@@ -84,15 +84,15 @@ download("https://github.com/whitesource/unified-agent-distribution/releases/lat
             ).then(
                 result => {
                     logCmdData(result);
-                    return uaDockerScan;
+                    // return uaDockerScan;
                 }
-            ).catch(err => logCmdError('Exception docker images result ', err)
-            ).then(
-                result => {
-                    logCmdData(result);
-                    console.log("Yos finish all");
-                }
-            ).catch(err => logCmdError("Exception ua run results ", err));
+            ).catch(err => logCmdError('Exception docker images result ', err));
+            // ).then(
+            //     result => {
+            //         logCmdData(result);
+            //         console.log("Yos finish all");
+            //     }
+            // ).catch(err => logCmdError("Exception ua run results ", err));
 
 
         } catch (error) {
