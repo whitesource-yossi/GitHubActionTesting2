@@ -40,95 +40,39 @@ var logCmdError = function (message, error) {
     console.log(message + error)
 };
 
-// var ls = execShellCommand('ls');
-// var dockerVersion = execShellCommand('docker -v');
-// var dockerLogin = execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
-// var dockerPull = execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
-// var dockerImages = execShellCommand('docker images');
-// var uaDockerScan = execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY, 'docker images result ');
-
-download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar",
-    function (err) {
-        if (err) {
-            console.log("Error downloading file " + err)
-        } else {
-            try {
-                var dockerVersion = execShellCommand('docker -v');
-                dockerVersion.then(
-                    result => {
-                        logCmdData(result);
-                        return execShellCommand('ls -alF');
-                    }
-                ).then(
-                    result => {
-                        logCmdData(result);
-                        return execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
-                    }
-                ).then(
-                    result => {
-                        logCmdData(result);
-                        return execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
-                    }
-                ).then(
-                    result => {
-                        logCmdData(result);
-                        return execShellCommand('docker images');
-                    }
-                ).then(
-                    result => {
-                        logCmdData(result);
-                        return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY);
-                    }
-                )
-                .catch(err => {
-                    logCmdError("Exception ", err)
-                });
-
-                // var ls = execShellCommand('ls');
-                // ls.then(
-                //     result => {
-                //         logCmdData(result);
-                //         // return dockerLogin;
-                //     }
-                // ).catch(err => {
-                //     logCmdError("Exception ", err)
-                // });
-
-                // ls.then(
-                //     result => {
-                //         logCmdData(result);
-                //         // return dockerLogin;
-                //     }
-                // ).catch(err => {logCmdError("Exception ", err)});
-
-                // ).then(
-                //     result => {
-                //         logCmdData(result);
-                //         return dockerPull;
-                //     }
-                // ).catch(err => logCmdError('Exception docker login response ', err)
-                // ).then(
-                //     result => {
-                //         logCmdData(result);
-                //         return dockerImages;
-                //     }
-                // ).catch(err => logCmdError('Exception docker pull response ', err)
-                // ).then(
-                //     result => {
-                //         logCmdData(result);
-                //         // return uaDockerScan;
-                //     }
-                // ).catch(err => logCmdError('Exception docker images result ', err));
-                // ).then(
-                //     result => {
-                //         logCmdData(result);
-                //         console.log("Yos finish all");
-                //     }
-                // ).catch(err => logCmdError("Exception ua run results ", err));
-
-
-            } catch (error) {
-                core.setFailed(error.message);
+download("https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar", "wss-unified-agent.jar", function (err) {
+    try {
+        var dockerVersion = execShellCommand('docker -v');
+        dockerVersion.then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('ls -alF');
             }
-        }
-    });
+        ).then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('docker login docker.pkg.github.com -u whitesource-yossi -p ' + process.env.YOS_SEC);
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('docker pull docker.pkg.github.com/whitesource-yossi/githubactiontesting2/localdjango:1.0');
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('docker images');
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY);
+            }
+        )
+            .catch(err => {
+                logCmdError("Exception ", err)
+            });
+    } catch (error) {
+        core.setFailed(error.message);
+    }
+});
