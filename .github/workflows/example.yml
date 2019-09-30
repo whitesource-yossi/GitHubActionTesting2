@@ -1,7 +1,4 @@
-on: 
-  push:
-    branches:    
-      - master 
+on: registry_package
 
 jobs:
   example:
