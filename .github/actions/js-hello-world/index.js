@@ -76,14 +76,15 @@ download('https://wss-qa.s3.amazonaws.com/unified-agent/integration/wss-unified-
             }
         ).then(
             result => {
-                logCmdData(result);
-                return execShellCommand('cat ' + result)
-            }
-        ).then(
-            result => {
                 return logCmdData(result);
+                // return execShellCommand('cat ' + result)
             }
         )
+        //     .then(
+        //     result => {
+        //         return logCmdData(result);
+        //     }
+        // )
         .catch(err => {
                 logCmdError("Exception ", err)
         });
