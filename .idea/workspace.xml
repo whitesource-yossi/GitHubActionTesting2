@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="999743b5-11d3-4160-9a20-ae252937cb4e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.github/actions/js-hello-world/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/actions/js-hello-world/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="82" column="23" lean-forward="true" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+            <state relative-caret-position="387">
+              <caret line="82" selection-start-line="82" selection-end-line="86" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -175,14 +174,7 @@
       <workItem from="1568993755853" duration="11923000" />
       <workItem from="1569356419644" duration="6197000" />
       <workItem from="1569519908193" duration="10340000" />
-      <workItem from="1570043014181" duration="3646000" />
-    </task>
-    <task id="LOCAL-00027" summary="29">
-      <created>1569009960159</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1569009960159</updated>
+      <workItem from="1570043014181" duration="4525000" />
     </task>
     <task id="LOCAL-00028" summary="31">
       <created>1569010126324</created>
@@ -520,11 +512,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570045336488</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="79">
+      <created>1570047115346</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1570047115346</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32733000" />
+    <option name="totallyTimeSpent" value="33612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -574,7 +573,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="54" />
     <MESSAGE value="55" />
     <MESSAGE value="56" />
     <MESSAGE value="57" />
@@ -599,7 +597,8 @@
     <MESSAGE value="76" />
     <MESSAGE value="77" />
     <MESSAGE value="78" />
-    <option name="LAST_COMMIT_MESSAGE" value="78" />
+    <MESSAGE value="79" />
+    <option name="LAST_COMMIT_MESSAGE" value="79" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/node_modules/@actions/github/package.json">
@@ -676,8 +675,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="82" column="23" lean-forward="true" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        <state relative-caret-position="387">
+          <caret line="82" selection-start-line="82" selection-end-line="86" selection-end-column="12" />
         </state>
       </provider>
     </entry>
