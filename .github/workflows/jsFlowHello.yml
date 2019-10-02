@@ -2,9 +2,6 @@ on:
   push:
     branches:
       - jsHello
-  registry_package:
-    branches:
-      - jsHello
 
 jobs:
   example:
