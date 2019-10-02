@@ -71,6 +71,16 @@ download('https://wss-qa.s3.amazonaws.com/unified-agent/integration/wss-unified-
             }
         ).then(
             result => {
+                logCmdData(result);
+                return execShellCommand('find . -name "*-scan-*"')
+            }
+        ).then(
+            result => {
+                logCmdData(result);
+                return execShellCommand('cat ' + result)
+            }
+        ).then(
+            result => {
                 return logCmdData(result);
             }
         )
