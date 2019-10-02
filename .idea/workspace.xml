@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="999743b5-11d3-4160-9a20-ae252937cb4e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/actions/js-hello-world/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.github/actions/js-hello-world/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+            <state relative-caret-position="305">
+              <caret line="69" column="176" selection-start-line="69" selection-start-column="176" selection-end-line="69" selection-end-column="176" />
             </state>
           </provider>
         </entry>
@@ -140,14 +141,7 @@
       <workItem from="1568993755853" duration="11923000" />
       <workItem from="1569356419644" duration="6197000" />
       <workItem from="1569519908193" duration="10340000" />
-      <workItem from="1570043014181" duration="1196000" />
-    </task>
-    <task id="LOCAL-00025" summary="27">
-      <created>1569008926475</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1569008926475</updated>
+      <workItem from="1570043014181" duration="2005000" />
     </task>
     <task id="LOCAL-00026" summary="28">
       <created>1569009069258</created>
@@ -485,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570043568227</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="77">
+      <created>1570044449038</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1570044449038</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30283000" />
+    <option name="totallyTimeSpent" value="31092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -539,7 +540,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="52" />
     <MESSAGE value="53" />
     <MESSAGE value="54" />
     <MESSAGE value="55" />
@@ -564,7 +564,8 @@
     <MESSAGE value="74" />
     <MESSAGE value="75" />
     <MESSAGE value="76" />
-    <option name="LAST_COMMIT_MESSAGE" value="76" />
+    <MESSAGE value="77" />
+    <option name="LAST_COMMIT_MESSAGE" value="77" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/node_modules/@actions/github/package.json">
@@ -641,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="305">
+          <caret line="69" column="176" selection-start-line="69" selection-start-column="176" selection-end-line="69" selection-end-column="176" />
         </state>
       </provider>
     </entry>
