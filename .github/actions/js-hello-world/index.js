@@ -67,7 +67,7 @@ download('https://wss-qa.s3.amazonaws.com/unified-agent/integration/wss-unified-
         ).then(
             result => {
                 logCmdData(result);
-                return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -generateScanReport true -userKey ' + process.env.YOS_USER_KEY);
+                return execShellCommand('java -jar wss-unified-agent.jar -d . -apiKey ' + process.env.YOS_API_KEY + ' -projectToken ' + process.env.YOS_PROJ + ' -noConfig true -docker.scanImages true -userKey ' + process.env.YOS_USER_KEY);
             }
         ).then(
             result => {
