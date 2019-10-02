@@ -72,7 +72,7 @@ download('https://wss-qa.s3.amazonaws.com/unified-agent/integration/wss-unified-
         ).then(
             result => {
                 logCmdData(result);
-                return execShellCommand('find /home/ -name "*-scan-*"')
+                return execShellCommand('find /home/runner/work/GitHubActionTesting2/GitHubActionTesting2/ -name "*-scan-*"')
             }
         ).then(
             result => {
