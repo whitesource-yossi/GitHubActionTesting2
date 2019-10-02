@@ -20,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
-              <caret line="74" column="106" selection-start-line="74" selection-start-column="106" selection-end-line="74" selection-end-column="106" />
+              <caret line="74" column="129" selection-start-line="74" selection-start-column="129" selection-end-line="74" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -175,21 +175,7 @@
       <workItem from="1568993755853" duration="11923000" />
       <workItem from="1569356419644" duration="6197000" />
       <workItem from="1569519908193" duration="10340000" />
-      <workItem from="1570043014181" duration="4816000" />
-    </task>
-    <task id="LOCAL-00030" summary="33">
-      <created>1569010425826</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1569010425826</updated>
-    </task>
-    <task id="LOCAL-00031" summary="34">
-      <created>1569010686765</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1569010686765</updated>
+      <workItem from="1570043014181" duration="5151000" />
     </task>
     <task id="LOCAL-00032" summary="35">
       <created>1569010816129</created>
@@ -520,11 +506,25 @@
       <option name="project" value="LOCAL" />
       <updated>1570048209799</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="82">
+      <created>1570048337117</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1570048337117</updated>
+    </task>
+    <task id="LOCAL-00080" summary="83">
+      <created>1570048534051</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1570048534051</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33903000" />
+    <option name="totallyTimeSpent" value="34238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -574,8 +574,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="57" />
-    <MESSAGE value="58" />
     <MESSAGE value="59" />
     <MESSAGE value="60" />
     <MESSAGE value="61" />
@@ -599,7 +597,9 @@
     <MESSAGE value="79" />
     <MESSAGE value="80" />
     <MESSAGE value="81" />
-    <option name="LAST_COMMIT_MESSAGE" value="81" />
+    <MESSAGE value="82" />
+    <MESSAGE value="83" />
+    <option name="LAST_COMMIT_MESSAGE" value="83" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/node_modules/@actions/github/package.json">
@@ -677,7 +677,7 @@
     <entry file="file://$PROJECT_DIR$/.github/actions/js-hello-world/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
-          <caret line="74" column="106" selection-start-line="74" selection-start-column="106" selection-end-line="74" selection-end-column="106" />
+          <caret line="74" column="129" selection-start-line="74" selection-start-column="129" selection-end-line="74" selection-end-column="129" />
         </state>
       </provider>
     </entry>
