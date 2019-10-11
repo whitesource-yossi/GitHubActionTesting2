@@ -16,4 +16,4 @@ jobs:
         YOS_USER_KEY: ${{ secrets.YOS_USER_KEY }}
         YOS_API_KEY: ${{ secrets.Yos_API_KEY }}
         YOS_PROJ: ${{ secrets.YOS_PROJ
-      uses: whitesource-yossi/gpraction@7f6ef9c0f9af9df18c048968ecf50e8ec1bb24b9
+      uses: whitesource-yossi/gpraction@master
