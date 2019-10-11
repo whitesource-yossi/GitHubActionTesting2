@@ -16,4 +16,4 @@ jobs:
           ws-project-key: ${{ secrets.YOS_PROJ }}
           ws-destination-url: https://saas.whitesourcesoftware.com/agent
           print-scan-report: true
-        uses: whitesource-yossi/GprAction@882cb974a04b4208d70719c8d64877380a89a37b
+        uses: whitesource-yossi/GprAction@e308e2eb018e0da4407ccb8435c4ff57ec480f95
