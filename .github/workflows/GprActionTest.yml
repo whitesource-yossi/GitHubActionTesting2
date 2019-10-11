@@ -15,4 +15,5 @@ jobs:
           YOS_USER_KEY: ${{ secrets.YOS_USER_KEY }}
           YOS_API_KEY: ${{ secrets.Yos_API_KEY }}
           YOS_PROJ: ${{ secrets.YOS_PROJ }}
+          WS-DESTINATION-URL: 'https://saas.whitesourcesoftware.com/api'
         uses: whitesource-yossi/gpraction@master
