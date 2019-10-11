@@ -15,4 +15,4 @@ jobs:
           ws-user-key: ${{ secrets.YOS_USER_KEY }}
           ws-project-key: ${{ secrets.YOS_PROJ }}
           ws-destination-url: https://saas.whitesourcesoftware.com/agent
-        uses: whitesource-yossi/GprAction@4c14d3493ffe1aeb2364eeca3c526a67cd4ac177
+        uses: whitesource-yossi/GprAction@59f738056821af85aeac2d66cd61c3f38d32f94d
