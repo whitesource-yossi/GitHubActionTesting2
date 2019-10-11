@@ -10,10 +10,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1.0.0
     - name: Gpr action step
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        YOS_SEC: ${{ secrets.YOS_SEC }}
-        YOS_USER_KEY: ${{ secrets.YOS_USER_KEY }}
-        YOS_API_KEY: ${{ secrets.Yos_API_KEY }}
-        YOS_PROJ: ${{ secrets.YOS_PROJ }}
       uses: whitesource-yossi/gpraction@master
