@@ -7,6 +7,7 @@ jobs:
   gprActionJob:
     name: GPR Action Job
     runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v1.0.0
+    steps:
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 10.x
