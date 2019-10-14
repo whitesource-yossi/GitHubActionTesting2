@@ -1,8 +1,4 @@
-on:
-  push:
-    branches:
-      - master
-
+on: registry_package
 jobs:
   gprActionJob:
     name: GPR Action Job
@@ -16,4 +12,4 @@ jobs:
           ws-project-key: ${{ secrets.YOS_PROJ }}
           ws-destination-url: https://saas.whitesourcesoftware.com/agent
           print-scan-report: true
-        uses: whitesource-yossi/GprAction@d99760cbb1d3a4e308dd6a37f9b741edc3a7baf5
+        uses: whitesource-yossi/GprAction
