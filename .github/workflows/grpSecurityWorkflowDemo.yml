@@ -14,6 +14,7 @@ jobs:
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
           ws-destination-url: https://saas.whitesourcesoftware.com/agent
+          print-scan-report: true
       - name: Upload Report
         uses: actions/upload-artifact@master
         with:
