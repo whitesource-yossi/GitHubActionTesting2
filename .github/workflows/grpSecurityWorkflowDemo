@@ -1,0 +1,21 @@
+on: registry_package
+name: GPR_Security_Action_Demo
+jobs:
+  gprSecurityJob:
+    name: GPR Security Check Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: GPR Security Check Step
+        id: gpr-security-check
+        uses: whitesource/GprSecurityAction@19.10.2
+        with:
+          gpr-token: ${{ secrets.GPR_ACCESS_TOKEN }}
+          ws-api-key: ${{ secrets.WS_API_KEY }}
+          ws-user-key: ${{ secrets.WS_USER_KEY }}
+          ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
+          ws-destination-url: https://saas.whitesourcesoftware.com/agent
+      - name: Upload Report
+        uses: actions/upload-artifact@master
+        with:
+          name: security-scan-log
+          path: ${{ steps.gpr-security-check.outputs.scan-report-folder-path }}
