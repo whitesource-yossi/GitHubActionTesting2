@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: GPR Security Check Step
         id: gpr-security-check
-        uses: whitesource/GprSecurityAction@yoni-dev
+        uses: whitesource-yossi/GprAction@yoni-dev
         with:
           gpr-token: ${{ secrets.YOS_SEC }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
