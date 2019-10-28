@@ -7,13 +7,14 @@ jobs:
     steps:
       - name: GPR Security Check Step
         id: gpr-security-check
-        uses: whitesource/GprSecurityAction@19.10.2
+        uses: whitesource-yossi/GprAction@yoni-dev
         with:
-          gpr-token: ${{ secrets.GPR_ACCESS_TOKEN }}
+          gpr-token: ${{ secrets.NEW_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
           ws-destination-url: https://saas.whitesourcesoftware.com/agent
+          print-scan-report: true
       - name: Upload Report
         uses: actions/upload-artifact@master
         with:
