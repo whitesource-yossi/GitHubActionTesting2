@@ -9,7 +9,7 @@ jobs:
         id: gpr-security-check
         uses: whitesource-yossi/GprAction@yoni-dev
         with:
-          gpr-token: ${{ secrets.NEW_TOKEN }}
+          gpr-token: ${{ secrets.YOS_SEC }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
