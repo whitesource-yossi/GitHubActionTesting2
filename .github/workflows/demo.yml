@@ -9,7 +9,7 @@ jobs:
         id: gpr-security-check
         uses: whitesource/GprSecurityAction@19.10.1
         with:
-          gpr-token: ${{ secrets.GPR_TOKEN }}
+          gpr-token: ${{ secrets.GITHUB_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
