@@ -1,5 +1,5 @@
 on: registry_package
-name: WORKFLOW_NAME
+name: Docker image security scan
 jobs:
   gprSecurityJob:
     name: GPR Security Check Job
