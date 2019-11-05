@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: GPR Security Check Step
         id: gpr-security-check
-        uses: whitesource/GprSecurityAction@19.10.1
+        uses: whitesource/GprSecurityAction@283c95b6e1b2e31e9e700c8711f3d3c915e1d5cf
         with:
           gpr-token: ${{ secrets.GPR_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
