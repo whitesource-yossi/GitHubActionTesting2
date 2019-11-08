@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: GP Security Check Step
         id: gp-security-check
-        uses: whitesource/GpSecurityAction@5baa496244b61f0101c86d0c3707f2ed9990dbe6
+        uses: whitesource/GpSecurityAction@b5f36d0e95550dd5699e967862e882fcee19fa2c
         with:
           gp-token: ${{ secrets.GP_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
