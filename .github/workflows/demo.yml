@@ -1,15 +1,15 @@
 on: registry_package
 name: Docker image security scan
 jobs:
-  gprSecurityJob:
-    name: GPR Security Check Job
+  gpSecurityJob:
+    name: GP Security Check Job
     runs-on: ubuntu-latest
     steps:
-      - name: GPR Security Check Step
-        id: gpr-security-check
-        uses: whitesource/GprSecurityAction@283c95b6e1b2e31e9e700c8711f3d3c915e1d5cf
+      - name: GP Security Check Step
+        id: gp-security-check
+        uses: whitesource/GpSecurityAction@5baa496244b61f0101c86d0c3707f2ed9990dbe6
         with:
-          gpr-token: ${{ secrets.GPR_TOKEN }}
+          gp-token: ${{ secrets.GP_TOKEN }}
           ws-api-key: ${{ secrets.WS_API_KEY }}
           ws-user-key: ${{ secrets.WS_USER_KEY }}
           ws-product-key: ${{ secrets.WS_PRODUCT_KEY }}
@@ -19,4 +19,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: security-scan-log
-          path: ${{ steps.gpr-security-check.outputs.scan-report-folder-path }}
+          path: ${{ steps.gp-security-check.outputs.scan-report-folder-path }}
